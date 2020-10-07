@@ -8,7 +8,6 @@ TRIG = 24
 ECHO = 23 
 RED = 20
 BLUE = 21
-buzzer = 26
 
 
 MAX_DISTANCE_CM = 300
@@ -25,7 +24,6 @@ def distanceInCm(duration):
 def main():
 
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(buzzer, GPIO.OUT)
     GPIO.setup(TRIG, GPIO.OUT) 
     GPIO.setup(ECHO, GPIO.IN) 
     GPIO.setup(RED,GPIO.OUT)
@@ -69,10 +67,6 @@ def main():
         
         if distance <=10:
             GPIO.output(RED, GPIO.HIGH)
-            if distance <=5:
-                GPIO.output(buzzer, GPIO.HIGH)
-            else:
-                GPIO.output(buzzer, GPIO.LOW)
         else :
             GPIO.output(RED, GPIO.LOW)
 
